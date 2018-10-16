@@ -55,6 +55,12 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
+  # logging ActiveMerchant for Paypal
+  ActiveMerchant::Billing::Base.mode = :test
+  ActiveMerchant::Billing::PaypalExpressGateway.default_currency = "JPY"
+  ActiveMerchant::Billing::PaypalExpressGateway.wiredump_device = File.new(File.join([Rails.root, "log", "paypal.log"]), "a")
+  ActiveMerchant::Billing::PaypalExpressGateway.wiredump_device.sync = true
+
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   # config.file_watcher = ActiveSupport::EventedFileUpdateChecker

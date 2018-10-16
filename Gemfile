@@ -57,4 +57,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'activemerchant'
-gem 'offsite_payments'
+# gem 'offsite_payments'
+gem 'money'
+gem 'shopify-money', require: 'money'
